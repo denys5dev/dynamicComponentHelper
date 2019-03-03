@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ScriptStore } from './../extraLib';
 
 @Component({
 	selector: 'app-widget',
@@ -6,12 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 	styleUrls: [ './widget.component.scss' ]
 })
 export class WidgetComponent implements OnInit {
-	title: string = 'default';
+	config: string = 'default';
 	constructor() {}
 
 	ngOnInit() {}
 
 	changeTitle(title: string) {
-		this.title = title;
+		this.config = title;
+
+		ScriptStore[title].src.then((_) => {
+			console.log(_);
+			// Test
+			let a = _.uniqBy([ 1, 1, 2, 2, 4 ]);
+			console.log(a);
+		});
 	}
 }

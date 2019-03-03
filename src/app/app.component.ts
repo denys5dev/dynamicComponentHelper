@@ -32,8 +32,6 @@ export class AppComponent implements OnInit {
 
 		let componentRef = viewContainerRef.createComponent(component);
 
-		(<WidgetComponent>componentRef.instance).changeTitle(
-			'Here could be dynamic content'
-		);
+		(<WidgetComponent>componentRef.instance).changeTitle('lodash');
 	}
 }
